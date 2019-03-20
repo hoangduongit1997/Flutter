@@ -53,7 +53,7 @@ class LoginPageState extends State<LoginPage>{
               padding: const EdgeInsets.fromLTRB(0,0,0,0),
 
               child:StreamBuilder(
-                stream:LoginBloc().userStream,
+                stream:loginBloc.userStream,
                 builder: (context,snapshot)=> TextField(
                 controller: _user,
                 style: TextStyle(fontSize: 18,color: Colors.black),
@@ -71,7 +71,7 @@ class LoginPageState extends State<LoginPage>{
                 alignment: AlignmentDirectional.centerEnd,
                 children: <Widget>[
                   StreamBuilder(
-                    stream: loginBloc.passStrem,
+                    stream:loginBloc.passStream ,
                     builder: (context,snapshot)=> TextField(
 
                     style: TextStyle(fontSize: 18,color: Colors.black),
@@ -131,7 +131,7 @@ class LoginPageState extends State<LoginPage>{
 
      if(loginBloc.isValidInfo(_user.text.trim(),_pass.text.trim()))
        {
-         Navigator.push(context,MaterialPageRoute(builder:gotohome));
+         Navigator.push(context,MaterialPageRoute(builder:(context)=>HomePage()));
        }
   }
 

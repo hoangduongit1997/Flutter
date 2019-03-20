@@ -4,6 +4,7 @@ class HomePage extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(title: Text("Home"),),
     );
   }
