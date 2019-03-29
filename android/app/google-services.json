@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "799562272580",
+    "firebase_url": "https://flutter-demo-7af74.firebaseio.com",
+    "project_id": "flutter-demo-7af74",
+    "storage_bucket": "flutter-demo-7af74.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:799562272580:android:3034b4628c71b286",
+        "android_client_info": {
+          "package_name": "com.example.sms_auth_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "799562272580-rvs3caf8pqfor3j4r6t492f96qipegph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjl0wGjUicEQn9iy5EyM68CV28jKWX4pM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
