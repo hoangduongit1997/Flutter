@@ -1,4 +1,4 @@
-package com.example.bacsic_app;
+package com.example.basic_app;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

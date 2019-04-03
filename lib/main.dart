@@ -1,27 +1,18 @@
 import 'dart:convert';
-
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
-Future<Post> fetchPost() async {
-final response = await http.get('https://fighttechvn.github.io/api/data.json');
-if (response.statusCode == 200) {
-return Post.fromJson(json.decode(response.body));
-} else {
-throw Exception('Failed');
-}
-}
 class Post {
   final String name;
   final String job;
   final String platform;
-  final int age;
+  final String age;
   final String link;
   final String linkflutter;
   final String linkvideo;
   final String linkintro;
   Post({this.name, this.job, this.platform, this.age, this.link,
-      this.linkflutter, this.linkvideo, this.linkintro});
+    this.linkflutter, this.linkvideo, this.linkintro});
   factory Post.fromJson(Map<String, dynamic> json) {
     return Post(
       name:json['name'],
@@ -35,6 +26,7 @@ class Post {
     );
   }
 }
+
 void main()=>runApp(MyApp());
 class MyApp extends StatelessWidget{
   @override
@@ -47,25 +39,31 @@ class MyApp extends StatelessWidget{
   }
 
 }
-
 class LoginPage extends StatefulWidget{
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return LoginPageState();
-  }
+  LoginPageState createState()=>LoginPageState();
 
 }
 class LoginPageState extends State<LoginPage>{
- TextEditingController _user=new TextEditingController();
- TextEditingController _pass=new TextEditingController();
+  @override
+  void initState(){
+    super.initState();
+    this.fetchPost();
+  }
+  Future<Post> fetchPost() async {
+    final response = await http.get('https://fighttechvn.github.io/api/data.json');
+    if (response.statusCode == 200) {
+      return Post.fromJson(json.decode(response.body));
+    } else {
+      throw Exception('Failed');
+    }
+  }
   @override
   Widget build(BuildContext context) {
-  Future<Post> post;
+    Future<Post> post;
     return Scaffold(
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       body: Container(
-
         padding: const EdgeInsets.fromLTRB(30,0,30,0),
         color: Colors.yellow,
         child: Column(
@@ -83,11 +81,6 @@ class LoginPageState extends State<LoginPage>{
                     fontSize: 20,
                   ),
                   ),
-                  Text('ON',style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                    fontSize: 20
-                  ),)
                 ],
               )
             ),
@@ -101,22 +94,58 @@ class LoginPageState extends State<LoginPage>{
             ),
 
             Padding(
-              padding: const EdgeInsets.fromLTRB(120,10,0,0),
+              padding: const EdgeInsets.fromLTRB(50,10,0,0),
               child: Row(
                 children: <Widget>[
-                  Text("Age:",style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    color: Colors.black,
-                    fontSize: 20
+                 new Text("Age:",style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      color: Colors.black,
+                      fontSize: 20
                   ),
                   ),
-                  Text("20",style: TextStyle(
-                    fontWeight:FontWeight.normal,
-                    color: Colors.black,
-                    fontSize: 20
-                  ),)
+                  FutureBuilder<Post>(
+                    future: ,
+                    builder: (context,snapshot){
+                      if(snapshot.hasData){
+                        return Text(snapshot.data.toString());
+                      }
+                      if(snapshot.hasError){
+                        return new Text("${snapshot.error}");
+                      }
+                      return CircularProgressIndicator();
+                    },
+                  ),
                 ],
               )
+            ),
+            Padding(
+                padding: const EdgeInsets.fromLTRB(80,10,0,0),
+                child: Row(
+                  children: <Widget>[
+                    new Text("Name:",style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        color: Colors.black,
+                        fontSize: 20
+                    ),
+                    ),
+                    FutureBuilder<Post>(
+                      future: fetchPost(),
+                      builder: (context,snapshot){
+                        if(snapshot.hasData){
+                          return new Text(snapshot.data.name,style: TextStyle(
+                              fontWeight:FontWeight.normal,
+                              color: Colors.black,
+                              fontSize: 20
+                          ),);
+                        }
+                        if(snapshot.hasError){
+                          return new Text("${snapshot.error}");
+                        }
+                        return CircularProgressIndicator();
+                      },
+                    ),
+                  ],
+                )
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(80,10,0,0),
@@ -128,11 +157,21 @@ class LoginPageState extends State<LoginPage>{
                      fontSize: 20
                  ),
                  ),
-                 Text("Android",style: TextStyle(
-                     fontWeight: FontWeight.normal,
-                     color: Colors.black,
-                     fontSize: 20
-                 ),
+                 FutureBuilder<Post>(
+                   future: post,
+                   builder: (context,snapshot){
+                     if(snapshot.hasData){
+                       return new Text(snapshot.data.platform,style: TextStyle(
+                           fontWeight:FontWeight.normal,
+                           color: Colors.black,
+                           fontSize: 20
+                       ),);
+                     }
+                     if(snapshot.hasError){
+                       return new Text("${snapshot.error}");
+                     }
+                     return CircularProgressIndicator();
+                   },
                  ),
                ],
                 ),
@@ -174,11 +213,12 @@ class LoginPageState extends State<LoginPage>{
                   color: Colors.black
                 ),
                 ),
-                  Text("IOS",style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 20,
+                Text(Platform.operatingSystem.toString().toUpperCase(),style: TextStyle(
+                    fontWeight: FontWeight.normal,
                     color: Colors.black,
-                  ),)
+                    fontSize: 20
+                ),
+                ),
                 ],
               ),
             )

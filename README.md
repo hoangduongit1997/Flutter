@@ -1,4 +1,4 @@
-# bacsic_app
+# basic_app
 
 A new Flutter project.
 
