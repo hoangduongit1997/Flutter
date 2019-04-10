@@ -49,7 +49,7 @@ class MyAppState extends State<MyAppPage>{
         ),
           leading:new IconButton(icon: new Icon(Icons.arrow_back), onPressed: null) ,
         actions: <Widget>[
-          IconButton(icon: Image.asset('assets/danger.png',width: 20,height: 20,), onPressed: null)
+          IconButton(icon: SvgPicture.asset('assets/danger.svg',width: 20,height: 20,), onPressed: null)
         ],
 
       ),
@@ -160,7 +160,7 @@ class MyAppState extends State<MyAppPage>{
                           height: 56,
                           child: RaisedButton.icon( elevation: 0.0,
                               shape:  RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8))),
-                              icon: Image.asset('assets/facebook.png' ,width: 40,height: 40,) ,
+                              icon: SvgPicture.asset('assets/facebook.svg' ,width: 40,height: 40,) ,
                               color: Colors.indigo[500],
                               onPressed: (){},
                               label: Text("Facebook",style: TextStyle(
@@ -181,7 +181,7 @@ class MyAppState extends State<MyAppPage>{
                           height: 56,
                           child: RaisedButton.icon( elevation: 0.0,
                               shape:  RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8))),
-                              icon: Image.asset('assets/google.png' ,width: 40,height: 40,) ,
+                              icon: SvgPicture.asset('assets/google.svg' ,width: 40,height: 40,) ,
                               color: Colors.pink,
                               onPressed: (){},
                               label: Text("Google",style: TextStyle(
@@ -202,8 +202,8 @@ class MyAppState extends State<MyAppPage>{
                           height: 56,
                           child: RaisedButton.icon( elevation: 0.0,
                               shape:  RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(8))),
-                              icon: Image.asset('assets/twiter.png' ,width: 40,height: 40,) ,
-                              color: Colors.lightBlue[500],
+                              icon: SvgPicture.asset('assets/twitter.svg' ,width: 40,height: 40,) ,
+                              color: Colors.blue[400],
                               onPressed: (){},
                               label: Text("Twitter",style: TextStyle(
                                   color: Colors.white, fontSize: 14.0))

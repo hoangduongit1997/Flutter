@@ -61,6 +61,9 @@ flutter:
      - assets/background.png
      - assets/iconBep.png
      - assets/iconBep@2x.png
+     - assets/twitter.svg
+     - assets/facebook.svg
+     - assets/google.svg
   fonts:
       - family: RobotoMono
         fonts:
