@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "106484307478",
+    "firebase_url": "https://lotus-maintenance-622ee.firebaseio.com",
+    "project_id": "lotus-maintenance-622ee",
+    "storage_bucket": "lotus-maintenance-622ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106484307478:android:5e5aa1eb172703d0",
+        "android_client_info": {
+          "package_name": "vn.pikatech.maintenance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106484307478-o6ipeg12e5m6m8po8552f799ql8qbmkq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8vd3qHXXLiGUu5dIVCs_y4U-zJ8EdGq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106484307478-o6ipeg12e5m6m8po8552f799ql8qbmkq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
